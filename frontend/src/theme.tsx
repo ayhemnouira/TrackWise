@@ -1,14 +1,7 @@
-import {
-  createTheme,
-  type Theme,
-  type ThemeOptions,
-} from "@mui/material/styles";
-import { createContext, useMemo, useState } from "react";
+import { createContext, useState, useMemo } from "react";
+import { createTheme, type Theme } from "@mui/material/styles";
 
-// Define the type for the mode parameter
-type ThemeMode = "light" | "dark";
-
-// Define the color tokens structure
+// Define color tokens interface
 interface ColorTokens {
   grey: { [key: number]: string };
   primary: { [key: number]: string };
@@ -17,8 +10,8 @@ interface ColorTokens {
   blueAccent: { [key: number]: string };
 }
 
-// Define color tokens for light and dark modes
-export const tokens = (mode: ThemeMode): ColorTokens => ({
+// Color design tokens
+export const tokens = (mode: "light" | "dark"): ColorTokens => ({
   ...(mode === "dark"
     ? {
         grey: {
@@ -36,7 +29,7 @@ export const tokens = (mode: ThemeMode): ColorTokens => ({
           100: "#d0d1d5",
           200: "#a1a4ab",
           300: "#727681",
-          400: "#434957",
+          400: "#1F2A40",
           500: "#141b2d",
           600: "#101624",
           700: "#0c101b",
@@ -95,7 +88,7 @@ export const tokens = (mode: ThemeMode): ColorTokens => ({
           300: "#0c101b",
           400: "#f2f0f0",
           500: "#141b2d",
-          600: "#434957",
+          600: "#1F2A40",
           700: "#727681",
           800: "#a1a4ab",
           900: "#d0d1d5",
@@ -136,10 +129,9 @@ export const tokens = (mode: ThemeMode): ColorTokens => ({
       }),
 });
 
-// Define theme settings for MUI
-export const themeSettings = (mode: ThemeMode): ThemeOptions => {
+// MUI theme settings
+export const themeSettings = (mode: "light" | "dark") => {
   const colors = tokens(mode);
-
   return {
     palette: {
       mode: mode,
@@ -167,7 +159,6 @@ export const themeSettings = (mode: ThemeMode): ThemeOptions => {
             secondary: {
               main: colors.greenAccent[500],
             },
-
             neutral: {
               dark: colors.grey[700],
               main: colors.grey[500],
@@ -179,49 +170,49 @@ export const themeSettings = (mode: ThemeMode): ThemeOptions => {
           }),
     },
     typography: {
-      fontFamily: ["Source Code Pro, sans-serif"].join(","),
+      fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
       fontSize: 12,
       h1: {
-        fontFamily: ["Source Code Pro, sans-serif"].join(","),
+        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 40,
       },
       h2: {
-        fontFamily: ["Source Code Pro, sans-serif"].join(","),
+        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 32,
       },
       h3: {
-        fontFamily: ["Source Code Pro, sans-serif"].join(","),
+        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 24,
       },
       h4: {
-        fontFamily: ["Source Code Pro, sans-serif"].join(","),
+        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 20,
       },
       h5: {
-        fontFamily: ["Source Code Pro, sans-serif"].join(","),
+        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 16,
       },
       h6: {
-        fontFamily: ["Source Code Pro, sans-serif"].join(","),
+        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 14,
       },
     },
   };
 };
 
-// Create the MUI theme
-export const ColorModeContext = createContext({
+// Context for color mode
+export const ColorModeContext = createContext<{
+  toggleColorMode: () => void;
+}>({
   toggleColorMode: () => {},
 });
 
 export const useMode = (): [Theme, { toggleColorMode: () => void }] => {
-  const [mode, setMode] = useState<ThemeMode>("dark");
-
+  const [mode, setMode] = useState<"light" | "dark">("dark");
   const colorMode = useMemo(
     () => ({
-      toggleColorMode: () => {
-        setMode((prev) => (prev === "light" ? "dark" : "light"));
-      },
+      toggleColorMode: () =>
+        setMode((prevMode) => (prevMode === "dark" ? "light" : "dark")),
     }),
     []
   );
