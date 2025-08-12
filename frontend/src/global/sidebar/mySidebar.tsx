@@ -3,12 +3,13 @@ import { Menu, Sidebar, MenuItem } from "react-pro-sidebar";
 import { useProSidebar } from "react-pro-sidebar";
 import { useSidebarContext } from "./sidebarContext";
 import { Link } from "react-router-dom";
-
+import UploadFileIcon from "@mui/icons-material/UploadFile";
+import AddCardIcon from "@mui/icons-material/AddCard";
 import { useTheme, Box, Typography, IconButton } from "@mui/material";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
+import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
-import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
+import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
@@ -20,7 +21,7 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import SwitchRightOutlinedIcon from "@mui/icons-material/SwitchRightOutlined";
 import SwitchLeftOutlinedIcon from "@mui/icons-material/SwitchLeftOutlined";
-import { tokens } from "../../../theme";
+import { tokens } from "../../theme";
 
 interface ItemProps {
   title: string;
@@ -121,7 +122,7 @@ const MyProSidebar: React.FC = () => {
                 ml="15px"
               >
                 <Typography variant="h3" color={colors.grey[100]}>
-                  ADMINIS
+                  Track Wise
                 </Typography>
                 <IconButton
                   onClick={
@@ -182,23 +183,23 @@ const MyProSidebar: React.FC = () => {
               Data
             </Typography>
             <Item
-              title="Manage Team"
-              to="/team"
-              icon={<PeopleOutlinedIcon />}
+              title="Transactions"
+              to="/transactions"
+              icon={<ReceiptLongIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Contacts Information"
-              to="/contacts"
-              icon={<ContactsOutlinedIcon />}
+              title="Budgets"
+              to="/budgets"
+              icon={<AccountBalanceWalletIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Invoices Balances"
-              to="/invoices"
-              icon={<ReceiptOutlinedIcon />}
+              title="Documents"
+              to="/documents"
+              icon={<UploadFileIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -217,9 +218,9 @@ const MyProSidebar: React.FC = () => {
               setSelected={setSelected}
             />
             <Item
-              title="Calendar"
-              to="/calendar"
-              icon={<CalendarTodayOutlinedIcon />}
+              title="Connect Banks"
+              to="/invoices"
+              icon={<AddCardIcon />}
               selected={selected}
               setSelected={setSelected}
             />

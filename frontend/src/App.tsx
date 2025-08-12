@@ -1,8 +1,10 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
-import Topbar from "./pages/global/Topbar";
-import { MyProSidebarProvider } from "./pages/global/sidebar/sidebarContext";
+
+import { MyProSidebarProvider } from "./global/sidebar/sidebarContext.tsx";
 import { Routes, Route } from "react-router-dom";
+import Topbar from "./global/Topbar.tsx";
+import Dashboard from "./pages/dashboard.tsx";
 
 const App: React.FC = () => {
   const [theme, colorMode] = useMode();
@@ -14,7 +16,9 @@ const App: React.FC = () => {
           <div style={{ height: "100%", width: "100%" }}>
             <main>
               <Topbar />
-              <Routes>{/* Add Route components here */}</Routes>
+              <Routes>
+                <Route path="/" element={<Dashboard />} />
+              </Routes>
             </main>
           </div>
         </MyProSidebarProvider>

@@ -1,6 +1,5 @@
 import React from "react";
 import { useContext } from "react";
-
 import { useTheme, Box, IconButton, InputBase } from "@mui/material";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
@@ -10,7 +9,7 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import { useProSidebar } from "react-pro-sidebar";
-import { ColorModeContext, tokens } from "../../theme";
+import { ColorModeContext, tokens } from "../theme";
 
 const Topbar: React.FC = () => {
   const theme = useTheme();
@@ -19,8 +18,8 @@ const Topbar: React.FC = () => {
   const { toggleSidebar, broken, rtl } = useProSidebar();
 
   return (
-    <Box display="flex" justifyContent="space-between" p={2}>
-      <Box display="flex">
+    <Box display="flex" justifyContent="space-between" p={2} width="100%">
+      <Box display="flex" alignItems="center">
         {broken && !rtl && (
           <IconButton
             sx={{ margin: "0 6px 0 2px" }}
@@ -41,7 +40,7 @@ const Topbar: React.FC = () => {
           </IconButton>
         </Box>
       </Box>
-      <Box display="flex">
+      <Box display="flex" alignItems="center">
         <IconButton onClick={colorMode.toggleColorMode}>
           {theme.palette.mode === "dark" ? (
             <LightModeOutlinedIcon />
