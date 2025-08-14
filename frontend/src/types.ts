@@ -19,3 +19,8 @@ export interface TotalBalanceBoxProps {
 export interface DoughnutChartProps {
   accounts: Account[];
 }
+export interface CreditCardProps {
+  account: Account;
+  userName: string;
+  showBalance?: boolean;
+}
