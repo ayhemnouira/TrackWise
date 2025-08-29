@@ -7,6 +7,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+import Chip from "@mui/material/Chip";
 import AddIcon from "@mui/icons-material/Add";
 import { tokens } from "../../theme";
 import BankCard from "../../components/BankCard";
@@ -16,12 +17,14 @@ interface RightSidebarProps {
   imageUrl?: string;
   banks?: Account[];
   userName?: string;
+  userEmail?: string;
 }
 
 const RightSidebar: React.FC<RightSidebarProps> = ({
   imageUrl,
   banks = [],
   userName,
+  userEmail,
 }) => {
   const loggedIn = {
     firstName: "John",
@@ -39,7 +42,10 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
   return (
     <Box
       sx={{
-        height: "100vh",
+        position: "sticky",
+
+        maxHeight: "calc(100vh - 64px)",
+        overflowY: "auto",
         mr: isMobile ? 1 : 0,
       }}
     >
@@ -94,7 +100,7 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
           fontWeight="bold"
           sx={{ fontSize: isMobile ? "16px" : "20px" }}
         >
-          {loggedIn.firstName} {loggedIn.lastName}
+          {userName || `${loggedIn.firstName} ${loggedIn.lastName}`}
         </Typography>
 
         {/* Email */}
@@ -103,7 +109,7 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
           color="text.secondary"
           sx={{ fontSize: isMobile ? "12px" : "14px" }}
         >
-          {loggedIn.email}
+          {userEmail}
         </Typography>
 
         <Box
@@ -183,6 +189,54 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
                 />
               </Box>
             )}
+
+            <Box
+              sx={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                mb: 0.5,
+                px: 0.5,
+                mt: 1,
+              }}
+            >
+              <Typography
+                fontWeight="bold"
+                sx={{ fontSize: isMobile ? "16px" : "16px" }}
+              >
+                Top categories
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                width: "100%",
+                display: "flex",
+                gap: 1,
+                flexWrap: "wrap",
+                mt: 1,
+                px: 0.5,
+              }}
+            >
+              <Chip
+                label="Savings"
+                size={isMobile ? "small" : "medium"}
+                color="primary"
+                variant="outlined"
+              />
+              <Chip
+                label="Subscription"
+                size={isMobile ? "small" : "medium"}
+                color="success"
+                variant="outlined"
+              />
+              <Chip
+                label="Food & Booze"
+                size={isMobile ? "small" : "medium"}
+                color="secondary"
+                variant="outlined"
+              />
+            </Box>
           </Box>
         )}
       </Box>

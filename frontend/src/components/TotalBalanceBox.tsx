@@ -26,7 +26,7 @@ function TotalBalanceBox({
         boxShadow: theme.shadows[5],
         overflow: "hidden",
         width: "100%",
-        maxWidth: 400, // increased width
+        maxWidth: 530, // increased width
 
         border: `1px solid ${colors.grey[700]}`,
       }}

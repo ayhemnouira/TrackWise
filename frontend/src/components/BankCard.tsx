@@ -72,7 +72,7 @@ const BankCard = ({
               flexDirection: "column",
               justifyContent: "space-between",
               height: "100%",
-              maxWidth: 228,
+              maxWidth: 300,
               borderTopLeftRadius: "20px",
               borderBottomLeftRadius: "20px",
               backgroundImage: `linear-gradient(160deg, ${leftBrightStart} 0%, ${leftBrightEnd} 100%)`,

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="57fc5b24-8392-462d-8880-1fa940406085" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/TuniFinanceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/TuniFinanceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/config/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/config/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/config/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/config/JwtFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/config/OAuth2LoginSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/config/OAuth2LoginSuccessHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/domain/USER_ROLE.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/domain/USER_ROLE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/domain/VerificationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/domain/VerificationType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/model/ForgotPasswordToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/model/ForgotPasswordToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/model/TwoFactorAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/model/TwoFactorAuth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/model/TwoFactorOTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/model/TwoFactorOTP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/model/UserPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/model/UserPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/model/VerificationCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/model/VerificationCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/repo/ForgotPasswordRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/repo/ForgotPasswordRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/repo/TwoFactorOtpRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/repo/TwoFactorOtpRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/repo/UserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/repo/UserRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/repo/VerificationCodeRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/repo/VerificationCodeRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/request/ForgotPasswordTokenRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/request/ForgotPasswordTokenRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/request/ResetPasswordRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/request/ResetPasswordRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/response/ApiResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/response/ApiResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/response/AuthResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/response/AuthResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/service/EmailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/service/ForgotPasswordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/service/ForgotPasswordService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/service/ForgotPasswordServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/service/ForgotPasswordServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/service/JWTService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/service/JWTService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/service/MyUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/service/MyUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/service/TwoFactorOtpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/service/TwoFactorOtpService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/service/TwoFactorOtpServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/service/TwoFactorOtpServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/service/VerificationCodeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/service/VerificationCodeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/service/VerificationCodeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/service/VerificationCodeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/TuniFinance/utils/OtpUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/TrackWise/utils/OtpUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/TuniFinance/TuniFinanceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/TrackWise/TuniFinanceApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="31Uraqjwp3rB3BBlNc8wBKiq4eR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="57fc5b24-8392-462d-8880-1fa940406085" name="Changes" comment="" />
+      <created>1755589559263</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1755589559263</updated>
+    </task>
+    <servers />
+  </component>
+</project>

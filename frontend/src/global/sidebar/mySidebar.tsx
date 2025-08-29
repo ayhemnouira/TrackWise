@@ -1,11 +1,18 @@
-import { useState, type ReactNode } from "react";
+import { useState, type ReactNode, useEffect } from "react";
 import { Menu, Sidebar, MenuItem } from "react-pro-sidebar";
 import { useProSidebar } from "react-pro-sidebar";
 import { useSidebarContext } from "./sidebarContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import AddCardIcon from "@mui/icons-material/AddCard";
-import { useTheme, Box, Typography, IconButton } from "@mui/material";
+import {
+  useTheme,
+  Box,
+  Typography,
+  IconButton,
+  Avatar,
+  Divider,
+} from "@mui/material"; // Import Button
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
@@ -19,7 +26,11 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import SwitchRightOutlinedIcon from "@mui/icons-material/SwitchRightOutlined";
 import SwitchLeftOutlinedIcon from "@mui/icons-material/SwitchLeftOutlined";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp"; // Import Logout Icon
 import { tokens } from "../../theme";
+import { signOut } from "../../lib/actions/user.actions"; // Import signOut action
+import { getLoggedInUser } from "../../lib/actions/user.actions"; // Import getLoggedInUser action
+import type { UserProfile } from "../../types"; // Import UserProfile type
 
 interface ItemProps {
   title: string;
@@ -27,6 +38,9 @@ interface ItemProps {
   icon: ReactNode;
   selected: string;
   setSelected: (title: string) => void;
+}
+interface MyProSidebarProps {
+  userName: string;
 }
 
 const Item: React.FC<ItemProps> = ({
@@ -53,17 +67,41 @@ const Item: React.FC<ItemProps> = ({
 };
 
 // Rest of the MyProSidebar component remains unchanged
-const MyProSidebar: React.FC = () => {
+const MyProSidebar: React.FC<MyProSidebarProps> = ({ userName }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [selected, setSelected] = useState<string>("Dashboard");
   const { sidebarRTL, setSidebarRTL, sidebarImage } = useSidebarContext();
   const { collapseSidebar, toggleSidebar, collapsed, broken } = useProSidebar();
+  const navigate = useNavigate(); // Initialize useNavigate
+  const [user, setUser] = useState<UserProfile | null>(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const loggedInUser = await getLoggedInUser();
+      if (loggedInUser) {
+        // Assuming that if firstName/lastName are not directly in JWT, they might be fetched separately
+        // For now, using sub as a fallback for display
+        setUser({
+          firstName: loggedInUser.firstName || "",
+          lastName: loggedInUser.lastName || "",
+          email: loggedInUser.email,
+          id: loggedInUser.id,
+        });
+      }
+    };
+    fetchUser();
+  }, []);
+
+  const handleLogout = async () => {
+    await signOut();
+    navigate("/sign-in"); // Redirect to sign-in page after logout
+  };
 
   return (
     <Box
       sx={{
-        position: "sticky",
+        position: "fixed",
         display: "flex",
         height: "100vh",
         top: 0,
@@ -160,12 +198,12 @@ const MyProSidebar: React.FC = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Harun Jeylan
+                  {user ? `${user.firstName} ${user.lastName}` : "Guest"}
                 </Typography>
               </Box>
             </Box>
           )}
-          <Box paddingLeft={collapsed ? undefined : "10%"}>
+          <Box paddingLeft={collapsed ? undefined : "5%"}>
             <Item
               title="Dashboard"
               to="/"
@@ -264,6 +302,38 @@ const MyProSidebar: React.FC = () => {
               selected={selected}
               setSelected={setSelected}
             />
+
+            <Box sx={{ mt: "auto" }}>
+              {" "}
+              {/* push it to the bottom */}
+              <Divider /> {/* border on top */}
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  px: 2,
+                  py: 1.5,
+                }}
+              >
+                {/* Left: Avatar */}
+                <Avatar
+                  src="https://i.pravatar.cc/40"
+                  alt="User"
+                  sx={{ width: 36, height: 36 }}
+                />
+
+                {/* Middle: Username */}
+                <Typography variant="body1" sx={{ flexGrow: 1, mx: 1 }}>
+                  {userName}
+                </Typography>
+
+                {/* Right: Exit Icon */}
+                <IconButton size="small" color="error" onClick={handleLogout}>
+                  <ExitToAppIcon />
+                </IconButton>
+              </Box>
+            </Box>
           </Box>
         </Menu>
       </Sidebar>

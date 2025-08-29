@@ -1,13 +1,31 @@
 import { Box, Grid } from "@mui/material";
+import { useEffect, useState } from "react";
 
 import HeaderBox from "../components/HeaderBox";
-
+import { getLoggedInUser } from "../lib/actions/user.actions";
 import TotalBalanceBox from "../components/TotalBalanceBox";
 import RightSidebar from "../global/sidebar/myRightSidebar";
 import type { Account } from "../types";
+import type { UserProfile } from "../types";
+import MonthlyExpensesChart from "../components/MonthlyExpensesChart";
 
 const Dashboard = () => {
-  const loggedIn = { firstName: "John" };
+  const [user, setUser] = useState<UserProfile | null>(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const loggedInUser = await getLoggedInUser();
+      if (loggedInUser) {
+        setUser({
+          firstName: loggedInUser.firstName || "",
+          lastName: loggedInUser.lastName || "",
+          email: loggedInUser.email,
+          id: loggedInUser.id,
+        });
+      }
+    };
+    fetchUser();
+  }, []);
 
   const banks: Account[] = [
     {
@@ -46,21 +64,26 @@ const Dashboard = () => {
           <HeaderBox
             type="greeting"
             title="Welcome"
-            user={loggedIn?.firstName || "Guest"}
+            user={user?.firstName || "Guest"}
             subtext="Here is your dashboard overview"
           />
-          <Box mt={2}>
+          <Box mt={2} display="flex" gap={3} flexWrap="wrap">
             <TotalBalanceBox
               accounts={[]}
               totalBanks={1}
               totalCurrentBalance={1250.35}
             />
+            <MonthlyExpensesChart />
           </Box>
         </Grid>
 
         {/* Right - 30% */}
         <Grid size={{ xs: 12, md: 3.6 }} p={0}>
-          <RightSidebar banks={banks} userName={"John Doe"} />
+          <RightSidebar
+            banks={banks}
+            userName={user ? `${user.firstName} ${user.lastName}` : "Guest"}
+            userEmail={user?.email}
+          />
         </Grid>
       </Grid>
     </Box>

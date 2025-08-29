@@ -24,3 +24,11 @@ export interface CreditCardProps {
   userName: string;
   showBalance?: boolean;
 }
+
+export interface UserProfile {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  // Add any other profile fields returned by /api/users/profile
+}
